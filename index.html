@@ -1,0 +1,196 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>product page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+            <!-- logo -->
+            <strong class="logo"><i class="fas fa-heart"></i></strong>
+            <!-- open nav mobile -->
+
+            <!--search -->
+            <label class="open-search" for="open-search">
+                <i class="fas fa-search"></i>
+                <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
+                <div class="search">
+                    <button class="button-search"><i class="fas fa-search"></i></button>
+                    <input type="text" placeholder="What are you looking for?" class="input-search" />
+                </div>
+            </label>
+            <strong class="logo"><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></strong>
+
+        </div>
+
+        </div>
+    </header>
+    <section>
+        <div class="container1">
+            <div class="row">
+                <div id="product" style="display: flex; flex-wrap: wrap;">
+                <!-- <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                    <div class="product-image">
+                        <a href="#" class="image">
+                            <img class="pic-1"
+                                src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80">
+                            <img class="pic-2"
+                                src="https://images.unsplash.com/photo-1539840093138-9b3e230e5206?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765a2eb222b1851840a4a157780fb487&auto=format&fit=crop&w=1534&q=80">
+                        </a>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Women's Top</a></h3>
+                        <div class="price">$75.99</div>
+                    </div>
+                 </div> 
+                </div>-->
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let product = [
+            {
+                id: 1,
+                title: "Women's party dress",
+                price: "$75.99",
+                image: "assets/img/img1.jpg",
+                quantity: 1
+            },
+            {
+                id: 2,
+                title: "Women's top",
+                price: "$75.99",
+                image: "assets/img/img2.jpg",
+                quantity: 1
+            },
+            {
+                id: 3,
+                title: "Women's formal dress",
+                price: "$75.99",
+                image: "assets/img/img3.jpg",
+                quantity: 1
+            },
+            {
+                id: 4,
+                title: "Women's formal dress",
+                price: "$75.99",
+                image: "assets/img/img4.jpg",
+                quantity: 1
+            },
+            {
+
+                title: "formal suit for men",
+                price: "$75.99",
+                image: "assets/img/img5 (1).jpg",
+                quantity: 1
+            },
+            {
+                id: 6,
+                title: "formal shirt form men",
+                price: "$75.99",
+                image: "assets/img/img6.jpg",
+                quantity: 1
+            },
+            {
+                id: 7,
+                title: "funcy pen for men",
+                price: "$75.99",
+                image: "assets/img/img7.jpg",
+                quantity: 1
+            },
+            {
+                id: 8,
+                title: "formal black suit for men",
+                price: "$75.99",
+                image: "assets/img/img8.jpg",
+                quantity: 1
+            }
+
+        ]
+
+        let tbl = "";
+        product.map((p) => {
+            tbl +=
+                `
+                <div class="col-md-3 col-sm-6" style="padding:10px;">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="#" class="image">
+                            <img class="pic-1"
+                                src="${p.image}">
+                        </a>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#" onclick="addcart(${p.id})"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">${p.title}</a></h3>
+                        <div class="price">${p.price}</div>
+                    </div>
+                </div>
+                </div>
+        `
+        });
+
+        document.getElementById("product").innerHTML =  tbl;
+
+        // let cart = [];
+
+        // const addcart = (id) => {
+        //     let c = product.find(item => item.id == id);
+        //     if(c) {
+        //         cart.push(c);
+        //         localStorage.setItem('cart',JSON.stringify(cart));
+        //         alert("cart Add");
+        //     }
+        // }
+
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const addcart = (id) => {
+        let itemInCart = cart.find(item => item.id == id);
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            let productToAdd = product.find(item => item.id == id);
+            if (productToAdd) {
+                cart.push({...productToAdd}); // Spread operator to create a new object
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert("Item added to cart");
+    }
+    </script>
+</body>
+
+</html>
